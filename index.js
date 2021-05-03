@@ -73,8 +73,8 @@ function searchByDistrict() {
 }
 
 async function check(result) {
-    console.log(`Attempting search`)
     let todaysDate = moment();
+    console.log(`Attempting search: ${todaysDate.format("DD-MM-YYYY")} ${todaysDate.format("HH:mm:ss")}`);
     for (var i = 0; i < 5; i++) {
         let date = todaysDate.format("DD-MM-YYYY");
         if (result.searchCriteria === 1) {
