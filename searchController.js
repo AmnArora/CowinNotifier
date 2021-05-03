@@ -54,11 +54,13 @@ function parseResponseAndNotify(json) {
                     let alertMsg = `Found a slot at ${center.name} for date ${session.date}`;
                     notifier.notify(alertMsg);
                     console.log(alertMsg)
-                } else {
-                    let alertMsg = `Found a slot at ${center.name} for date ${session.date}`;
-                    notifier.notify(alertMsg);
-                    console.log(alertMsg)   
-                }
+                } 
+                // Uncomment for testing
+                // else {
+                //     let alertMsg = `Found a slot at ${center.name} for date ${session.date}`;
+                //     notifier.notify(alertMsg);
+                //     console.log(alertMsg)   
+                // }
             }
         })
     });
