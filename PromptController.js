@@ -19,8 +19,8 @@ module.exports = {
                 }
             }]);
             return result.searchBy;
-        } catch (err) {
-            console.log("Got Error" + err)
+        } catch (error) {
+            console.log("Got Error" + error)
         }
     },
 
@@ -62,7 +62,7 @@ module.exports = {
             }]);
             return districtResult.districtId;
         } catch (error) {
-            console.log("Got Error" + err)
+            console.log("Got Error" + error)
         }
     },
 
@@ -76,7 +76,7 @@ module.exports = {
             }]);
             return result.frequency;
         } catch (error) {
-            console.log("Got Error" + err)
+            console.log("Got Error" + error)
         }
     },
 
@@ -89,7 +89,7 @@ module.exports = {
             }]);
             return result.pincode;
         } catch (error) {
-            console.log("Got Error" + err)
+            console.log("Got Error" + error)
         }
         
     }
