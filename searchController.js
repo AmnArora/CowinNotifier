@@ -2,6 +2,10 @@ const constants = require('./constants');
 const moment = require('moment');
 const fetch = require('node-fetch');
 const notifier = require('node-notifier');
+const accountSid = "AC11f21c0ce321038293c286807feb5eea";
+const authToken = "9c5fa55b177aca12abe3a16fd8b454d2";
+const client = require('twilio')(accountSid, authToken);
+const mobile = '+919873283013';
 
 module.exports = {
     searchByPincode: async (pincode) => {
@@ -53,16 +57,28 @@ function parseResponseAndNotify(json) {
                 if (session.available_capacity != 0) {
                     let alertMsg = `Found a slot at ${center.name} for date ${session.date}`;
                     notifier.notify(alertMsg);
-                    console.log(alertMsg)
+                    console.log(alertMsg);
+                    sendWhatsapp(alertMsg, mobile);
                 } 
                 // Uncomment for testing
                 // else {
                 //     let alertMsg = `Found a slot at ${center.name} for date ${session.date}`;
                 //     notifier.notify(alertMsg);
-                //     console.log(alertMsg)   
+                //     console.log(alertMsg);
+                //     sendWhatsapp(alertMsg, mobile);
                 // }
             }
         })
     });
+}
 
+function sendWhatsapp(message, number){
+    client.messages 
+    .create({ 
+       body: message, 
+       from: 'whatsapp:+14155238886',       
+       to: 'whatsapp:'+number, 
+     }) 
+    .then(message => console.log(message.sid)) 
+    .done();
 }
