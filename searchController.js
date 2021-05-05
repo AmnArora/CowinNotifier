@@ -5,7 +5,8 @@ const notifier = require('node-notifier');
 const accountSid = "AC11f21c0ce321038293c286807feb5eea";
 const authToken = "9c5fa55b177aca12abe3a16fd8b454d2";
 const client = require('twilio')(accountSid, authToken);
-const mobile = '+919873283013';
+//Enter Mobile Number here
+const mobile = '';
 
 module.exports = {
     searchByPincode: async (pincode) => {
